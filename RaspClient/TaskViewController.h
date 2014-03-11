@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SecondViewController.h
 //  RaspClient
 //
 //  Created by ShiningChan on 14-3-10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface TaskViewController : UIViewController
 
 @end

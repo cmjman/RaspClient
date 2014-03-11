@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  SecondViewController.m
 //  RaspClient
 //
 //  Created by ShiningChan on 14-3-10.
 //  Copyright (c) 2014年 ShiningChan. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "TaskViewController.h"
 
-@interface FirstViewController ()
+@interface TaskViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation TaskViewController
 
 - (void)viewDidLoad
 {

@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  RaspClient
 //
 //  Created by ShiningChan on 14-3-10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SwitchViewController : UIViewController
 
 @end
