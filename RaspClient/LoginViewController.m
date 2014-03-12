@@ -38,7 +38,34 @@
 
 - (IBAction)checkLogin:(id)sender{
     
-    [UserService checkUserLogin:_usernameText.text with:_passwordText.text];
+   [UserService checkUserLogin:_usernameText.text with:_passwordText.text callback:^(NSDictionary* json){
+       
+        if([[json objectForKey:@"result"] intValue ] == 1){
+            
+            [self performSegueWithIdentifier:@"gotoTab" sender:sender];
+        }else{
+            
+            [[[UIAlertView alloc] initWithTitle:@"登录失败" message:@"请检查密码或者用户名" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+
+    }];
+    
+    
+}
+
+- (IBAction)registUser:(id)sender{
+    
+    [UserService registUser:_usernameText.text with:_passwordText.text callback:^(NSDictionary* json){
+        
+        if([[json objectForKey:@"result"] intValue ] == 1){
+            
+            [[[UIAlertView alloc] initWithTitle:@"注册成功" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }else{
+            
+            [[[UIAlertView alloc] initWithTitle:@"注册失败" message:@"请换一个用户名" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+
+    }];
 }
 
 @end

@@ -11,16 +11,35 @@
 
 @implementation UserService
 
-+(void)checkUserLogin:(NSString *)userName with:(NSString *)password{
++(AFHTTPRequestOperation *)checkUserLogin:(NSString *)userName with:(NSString *)password callback:(void (^)(NSDictionary *json))block {
     
-    NSDictionary *dictionary = @{userName:@"nick",password:@"password"};
+    NSDictionary *dictionary = @{@"nick":userName,@"password":password};
     
-    [[AFHTTPClient sharedClient] POST:@"login" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    return [[AFHTTPClient sharedClient] POST:@"login" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         
-        NSLog(@"%@",responseObject);
+        if (block) {
+            block([responseObject objectForKey:@"response"]);
+        }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        NSLog(@"%@",error);
+    }];
+}
+
++(AFHTTPRequestOperation *)registUser:(NSString *)userName with:(NSString *)password callback:(void (^)(NSDictionary *json))block{
+    
+    NSDictionary *dictionary = @{@"nick":userName,@"password":password};
+    
+    return [[AFHTTPClient sharedClient] POST:@"register" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    
+        if (block) {
+            block([responseObject objectForKey:@"response"]);
+        }
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"%@",error);
     }];
 }
 

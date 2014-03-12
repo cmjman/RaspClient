@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPClient.h"
 
 @interface UserService : NSObject
 
-+(void)checkUserLogin:(NSString *)userName with: (NSString *)password;
++(AFHTTPRequestOperation *)checkUserLogin:(NSString *)userName with: (NSString *)password callback:(void (^)(NSDictionary *json))block;
+
++(AFHTTPRequestOperation *)registUser:(NSString *)userName with: (NSString *)password callback:(void (^)(NSDictionary *json))block;
 
 @end

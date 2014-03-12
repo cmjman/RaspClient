@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SwitchViewController : UIViewController
+@interface SwitchViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 
 @end
