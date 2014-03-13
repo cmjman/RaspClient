@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
-@interface Switch : NSObject
+@interface Switch : JSONModel
 
-@property (strong, nonatomic) NSNumber* switchId;   //开关ID
+@property (strong, nonatomic) NSNumber* id;   //开关ID
 @property (strong, nonatomic) NSString* name;       //开关名称
 @property (strong, nonatomic) NSNumber* status;     //开关当前状态
 @property (strong, nonatomic) NSNumber* level;      //最小可操作等级

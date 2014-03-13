@@ -23,7 +23,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="开关状态" image="first" id="u1e-5L-l1D"/>
                     <connections>
-                        <outlet property="tableView" destination="2VE-Yg-loa" id="PJR-TU-Bfd"/>
+                        <outlet property="tableView" destination="2VE-Yg-loa" id="TbO-5L-FUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>

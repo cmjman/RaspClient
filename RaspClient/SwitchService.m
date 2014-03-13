@@ -14,7 +14,7 @@
     
     NSDictionary *dictionary = @{@"page":page};
     
-    return [[AFHTTPClient sharedClient] GET:@"login" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    return [[AFHTTPClient sharedClient] GET:@"getSwitch" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         if (block) {
             block([responseObject objectForKey:@"response"]);
