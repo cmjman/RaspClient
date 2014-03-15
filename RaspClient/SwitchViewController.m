@@ -14,9 +14,12 @@
 @interface SwitchViewController (){
     
     NSMutableArray* dataArray;
+    SRWebSocket *webSocket;
 }
 
 @end
+
+static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getSwitchStatus";
 
 @implementation SwitchViewController
 
@@ -42,6 +45,8 @@
         }
     }];
     
+    [self connect];
+    
 }
 
 - (void)viewDidLoad
@@ -52,6 +57,18 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
+}
+
+- (void)connect{
+    
+    webSocket.delegate = nil;
+    [webSocket close];
+    
+    webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:SWITCH_STATUS_URL]]];
+    webSocket.delegate = self;
+    
+    NSLog(@"Opening Connection...");
+    [webSocket open];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +98,31 @@
     [cell setData:_switch];
 
     return cell;
+}
+
+#pragma - SRWebSocketDelegate
+
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket;
+{
+    NSLog(@"Websocket Connected");
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
+{
+    NSLog(@":( Websocket Failed With Error %@", error);
+    
+    webSocket = nil;
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
+{
+    NSLog(@"Received \"%@\"", message);
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
+{
+    NSLog(@"WebSocket closed");
+    webSocket = nil;
 }
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
-@interface User : NSObject
+@interface User : JSONModel
 
-@property (strong,nonatomic) NSNumber* userId;     //用户ID
+@property (strong,nonatomic) NSNumber* id;     //用户ID
 @property (strong,nonatomic) NSString* nick;       //昵称
 @property (strong,nonatomic) NSString* picture;    //头像（预留）
 @property (strong,nonatomic) NSNumber* level;      //权限等级

@@ -34,6 +34,7 @@
 		6C59CD3F18CF499D00560D74 /* TaskService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD3E18CF499D00560D74 /* TaskService.m */; };
 		6C59CD4218CF49B200560D74 /* Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD4118CF49B200560D74 /* Switch.m */; };
 		6C59CD4518CF49C800560D74 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD4418CF49C800560D74 /* Task.m */; };
+		6C867EDE18D48BEB00337A89 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C867EDD18D48BEB00337A89 /* CurrentUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		6C59CD4118CF49B200560D74 /* Switch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Switch.m; sourceTree = "<group>"; };
 		6C59CD4318CF49C800560D74 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		6C59CD4418CF49C800560D74 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		6C867EDC18D48BEB00337A89 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
+		6C867EDD18D48BEB00337A89 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,7 @@
 		6C1B904718CDC43700FDD567 /* RaspClient */ = {
 			isa = PBXGroup;
 			children = (
+				6C867EDB18D48BCB00337A89 /* Cache */,
 				6C551C0B18D1960400394DD0 /* View */,
 				6C59CD3618CF450E00560D74 /* Model */,
 				6C59CD2F18CF3B6A00560D74 /* Network */,
@@ -244,6 +248,15 @@
 				6C59CD4418CF49C800560D74 /* Task.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6C867EDB18D48BCB00337A89 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				6C867EDC18D48BEB00337A89 /* CurrentUser.h */,
+				6C867EDD18D48BEB00337A89 /* CurrentUser.m */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +399,7 @@
 				6C1B905E18CDC43700FDD567 /* TaskViewController.m in Sources */,
 				6C59CD4518CF49C800560D74 /* Task.m in Sources */,
 				6C1B905218CDC43700FDD567 /* AppDelegate.m in Sources */,
+				6C867EDE18D48BEB00337A89 /* CurrentUser.m in Sources */,
 				6C59CD3F18CF499D00560D74 /* TaskService.m in Sources */,
 				6C59CD3518CF3E6C00560D74 /* UserService.m in Sources */,
 				6C1B905B18CDC43700FDD567 /* SwitchViewController.m in Sources */,

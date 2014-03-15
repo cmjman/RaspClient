@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "UserService.h"
+#import "CurrentUser.h"
 
 @interface LoginViewController ()
 
@@ -42,8 +43,10 @@
        
         if([[json objectForKey:@"result"] intValue ] == 1){
             
+            NSDictionary* dictionary = [json objectForKey:@"user"];
+          
+            [[CurrentUser sharedInstance] setCurrentUser:dictionary];
             [self performSegueWithIdentifier:@"gotoTab" sender:sender];
-            NSLog(@"user:%@",json);
         }else{
             
             [[[UIAlertView alloc] initWithTitle:@"登录失败" message:@"请检查密码或者用户名" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];

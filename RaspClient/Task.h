@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
-@interface Task : NSObject
+@interface Task : JSONModel
 
 @property (strong, nonatomic) NSNumber* taskId;         //任务ID
 @property (strong, nonatomic) NSNumber* switchId;       //开关ID

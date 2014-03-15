@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SRWebSocket.h"
 
-@interface SwitchViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SwitchViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,SRWebSocketDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 
