@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewGestureRecognizer.h"
 
-@interface TaskViewController : UIViewController
+@interface TaskViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,TableViewGestureEditingRowDelegate, TableViewGestureAddingRowDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 
 @end

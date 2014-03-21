@@ -8,10 +8,28 @@
 
 #import "AppDelegate.h"
 
+#if ENABLE_PONYDEBUGGER
+#import <PonyDebugger/PonyDebugger.h>
+#endif
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+#if ENABLE_PONYDEBUGGER
+    
+    PDDebugger *debugger = [PDDebugger defaultInstance];
+    
+    [debugger enableNetworkTrafficDebugging];
+    [debugger forwardAllNetworkTraffic];
+    [debugger enableViewHierarchyDebugging];
+    [debugger setDisplayedViewAttributeKeyPaths:@[@"frame", @"hidden", @"alpha", @"opaque", @"accessibilityLabel", @"text"]];
+    [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
+    [debugger enableRemoteLogging];
+    
+#endif
+    
     // Override point for customization after application launch.
     return YES;
 }

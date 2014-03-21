@@ -35,4 +35,16 @@ NSUserDefaults* accountDefaults;
     return user;
 }
 
+-(void)setAutoLogin:(BOOL)isAuto{
+    
+    [accountDefaults setObject:[[NSNumber alloc]initWithBool:isAuto] forKey:@"autologin"];
+}
+
+-(BOOL)isAutoLogin{
+    
+    return [[accountDefaults objectForKey:@"autologin"] boolValue];
+}
+     
+
+
 @end

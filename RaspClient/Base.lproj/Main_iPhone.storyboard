@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EwN-Jg-vnb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EwN-Jg-vnb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -42,8 +42,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="QUy-BD-bpt" id="gwW-HZ-aWW"/>
+                            <outlet property="delegate" destination="QUy-BD-bpt" id="aCD-50-cQd"/>
+                        </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="添加任务" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="任务列表" image="second" id="Z7h-1E-pvt"/>
+                    <connections>
+                        <outlet property="tableView" destination="gMD-aP-Fq6" id="6vc-GV-wbs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,6 +115,10 @@
                                     <action selector="checkLogin:" destination="a7U-Gw-h8N" eventType="touchUpInside" id="jEP-Qc-RlB"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYQ-BH-NVb">
+                                <rect key="frame" x="197" y="290" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -116,6 +127,7 @@
                         <outlet property="loginButton" destination="NhL-de-1DL" id="B5U-9d-pJa"/>
                         <outlet property="passwordText" destination="Nfs-yk-xR5" id="ggy-Cf-bxQ"/>
                         <outlet property="registerButton" destination="HXM-IZ-9Iw" id="LHq-2l-aGa"/>
+                        <outlet property="switchButton" destination="qYQ-BH-NVb" id="Cei-cO-BZc"/>
                         <outlet property="usernameText" destination="ca5-St-nt1" id="6Up-Ay-PMm"/>
                         <segue destination="8YX-ce-x5E" kind="push" identifier="gotoTab" id="JFT-Mr-EZX"/>
                     </connections>

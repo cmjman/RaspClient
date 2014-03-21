@@ -17,4 +17,8 @@
 
 - (User*)getCurrentUser;
 
+- (void)setAutoLogin:(BOOL)isAuto;
+
+- (BOOL)isAutoLogin;
+
 @end

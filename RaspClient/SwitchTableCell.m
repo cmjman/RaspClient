@@ -17,7 +17,7 @@
     if(cell == nil){
         
         NSArray * nib = [[NSBundle mainBundle] loadNibNamed:@"TableCell" owner:self options:nil];
-        cell = (SwitchTableCell *)[nib objectAtIndex:0];
+        cell = [nib objectAtIndex:0];
     }
     return cell;
 }

@@ -7,12 +7,14 @@
 //
 
 #import "TaskService.h"
+#import "CurrentUser.h"
 
 @implementation TaskService
 
 +(AFHTTPRequestOperation*)getTask:(NSNumber *)page callback:(void (^)(NSDictionary *))block{
     
-    NSDictionary *dictionary = @{@"page":page};
+    User* user = [[CurrentUser sharedInstance] getCurrentUser];
+    NSDictionary *dictionary = @{@"page":page,@"user_id":user.id};
     
     return [[AFHTTPClient sharedClient] GET:@"getTask" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         

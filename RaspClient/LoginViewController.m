@@ -10,7 +10,10 @@
 #import "UserService.h"
 #import "CurrentUser.h"
 
-@interface LoginViewController ()
+@interface LoginViewController (){
+    
+    CurrentUser* currentUser;
+}
 
 @end
 
@@ -25,10 +28,21 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    currentUser = [CurrentUser sharedInstance];
+    
+    if ([currentUser isAutoLogin])
+        [self performSegueWithIdentifier:@"gotoTab" sender:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,8 +58,9 @@
         if([[json objectForKey:@"result"] intValue ] == 1){
             
             NSDictionary* dictionary = [json objectForKey:@"user"];
-          
-            [[CurrentUser sharedInstance] setCurrentUser:dictionary];
+            
+            [currentUser setCurrentUser:dictionary];
+            [currentUser setAutoLogin:_switchButton.on];
             [self performSegueWithIdentifier:@"gotoTab" sender:sender];
         }else{
             

@@ -29,7 +29,7 @@ static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getS
     
     [SwitchService getSwitch:[[NSNumber alloc] initWithInt:1] callback:^(NSDictionary* json){
         
-        NSLog(@"%@",json);
+        //NSLog(@"%@",json);
         
         NSArray* array = [json objectForKey:@"switches"];
         dataArray = [NSMutableArray array];
@@ -65,6 +65,7 @@ static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getS
     [webSocket close];
     
     webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:SWITCH_STATUS_URL]]];
+    
     webSocket.delegate = self;
     
     NSLog(@"Opening Connection...");
@@ -100,27 +101,23 @@ static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getS
     return cell;
 }
 
-#pragma - SRWebSocketDelegate
+#pragma mark - SRWebSocketDelegate
 
-- (void)webSocketDidOpen:(SRWebSocket *)webSocket;
-{
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket;{
     NSLog(@"Websocket Connected");
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
-{
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;{
     NSLog(@":( Websocket Failed With Error %@", error);
     
     webSocket = nil;
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
-{
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;{
     NSLog(@"Received \"%@\"", message);
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
-{
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;{
     NSLog(@"WebSocket closed");
     webSocket = nil;
 }
