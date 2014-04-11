@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MCSwipeTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PonyDebugger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDURLCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2F5C986FC7C347CC8DA3CA5E</key>
+		<key>1F25B4A64D3C4EA9B6AAF89C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C06FC9864ED43A5BDF9270D</key>
+		<key>37FE9F90AE22488E8F271155</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D886DCD261E412CBB9133FA</key>
+		<key>38728D5699C84E03AE779DF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A7F120220AA4E20A2252E16</key>
+		<key>4DDE58B0D9DA44B887236D97</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83B87080236E416BB165FE19</key>
+		<key>5308B23F54EC4C2C979F65A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1F41F022349407E98BD6A6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0BEB98E5BD347E585A7EC86</key>
 		<dict>
 			<key>primary</key>
 			<true/>

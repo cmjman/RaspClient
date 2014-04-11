@@ -85,9 +85,27 @@ static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getS
     return [dataArray count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 44;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 44)];
+    [label setText:@"  开关名称           开关状态                操作权限"];
+    [label setTextColor:[UIColor blackColor]];
+    [label setFont:[UIFont systemFontOfSize:14]];
+    [view addSubview:label];
+    
+    return view;
+}
+
 #pragma mark - UITableViewDelegate
 - (UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     NSString* identifier = [NSString stringWithFormat:@"SwitchTableCell"];
     SwitchTableCell* cell = (SwitchTableCell* )[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDURLCache.h"
 
 #if ENABLE_PONYDEBUGGER
 #import <PonyDebugger/PonyDebugger.h>
@@ -14,11 +15,8 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    
 #if ENABLE_PONYDEBUGGER
-    
+- (void)initPonyDebugger{
     PDDebugger *debugger = [PDDebugger defaultInstance];
     
     [debugger enableNetworkTrafficDebugging];
@@ -27,8 +25,26 @@
     [debugger setDisplayedViewAttributeKeyPaths:@[@"frame", @"hidden", @"alpha", @"opaque", @"accessibilityLabel", @"text"]];
     [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
     [debugger enableRemoteLogging];
-    
+
+}
 #endif
+
+- (void)initCache {
+    SDURLCache *cache = [[SDURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                                      diskCapacity:20 * 1024 * 1024
+                                                          diskPath:[SDURLCache defaultCachePath]];
+    cache.minCacheInterval = 0;
+    [NSURLCache setSharedURLCache:cache];
+    NSLog(@"Cache is being logged to: %@", [SDURLCache defaultCachePath]);
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    
+#if ENABLE_PONYDEBUGGER
+    [self initPonyDebugger];
+#endif
+    [self initCache];
     
     // Override point for customization after application launch.
     return YES;

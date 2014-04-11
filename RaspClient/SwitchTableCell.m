@@ -41,8 +41,10 @@
 - (void)setData:(Switch *)_switch{
     
     [_nameLabel setText:_switch.name];
-    [_statusLabel setText:_switch.status.stringValue];
-    [_levelLabel setText:_switch.status.stringValue];
+    
+    NSString* status_text = [_switch.status intValue] == 1?@"On":@"Off";
+    [_statusLabel setText:status_text];
+    [_levelLabel setText:_switch.level.stringValue];
 }
 
 @end
