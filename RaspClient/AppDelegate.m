@@ -30,12 +30,16 @@
 #endif
 
 - (void)initCache {
-    SDURLCache *cache = [[SDURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString* defaultCachePath= [[paths objectAtIndex:0] stringByAppendingPathComponent:@"NSURLCache"];
+    NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
                                                       diskCapacity:20 * 1024 * 1024
-                                                          diskPath:[SDURLCache defaultCachePath]];
-    cache.minCacheInterval = 0;
+                                                          diskPath:defaultCachePath];
+   // cache.minCacheInterval = 0;
+   
     [NSURLCache setSharedURLCache:cache];
-    NSLog(@"Cache is being logged to: %@", [SDURLCache defaultCachePath]);
+    NSLog(@"Cache is being logged to: %@", defaultCachePath);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

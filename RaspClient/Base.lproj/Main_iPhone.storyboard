@@ -9,8 +9,8 @@
             <objects>
                 <viewController title="First" id="CZ4-MO-1fc" customClass="SwitchViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lfH-Tg-8Ek"/>
-                        <viewControllerLayoutGuide type="bottom" id="dmf-ij-m03"/>
+                        <viewControllerLayoutGuide type="top" id="njt-Iy-aKP"/>
+                        <viewControllerLayoutGuide type="bottom" id="mo4-eg-xic"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa" customClass="UITableView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -35,8 +35,8 @@
             <objects>
                 <viewController title="Second" id="QUy-BD-bpt" customClass="TaskViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KYq-ML-BXD"/>
-                        <viewControllerLayoutGuide type="bottom" id="7aj-Tj-8mx"/>
+                        <viewControllerLayoutGuide type="top" id="crt-aE-GV3"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Bu-ne-rrl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6" customClass="UITableView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -76,8 +76,8 @@
             <objects>
                 <viewController id="a7U-Gw-h8N" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5wM-b5-6OR"/>
-                        <viewControllerLayoutGuide type="bottom" id="ubv-OQ-SQT"/>
+                        <viewControllerLayoutGuide type="top" id="dGF-Yt-Vy4"/>
+                        <viewControllerLayoutGuide type="bottom" id="fmo-xt-iVm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ew0-ut-rmP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>

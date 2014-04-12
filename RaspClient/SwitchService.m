@@ -13,9 +13,16 @@
 + (AFHTTPRequestOperation *)getSwitch:(NSNumber *)page callback:(void (^)(NSDictionary *))block{
     
     NSDictionary *dictionary = @{@"page":page};
+    NSString* url = @"getSwitch";
     
-    return [[AFHTTPClient sharedClient] GET:@"getSwitch" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    return [[AFHTTPClient sharedClient] GET:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         
+        NSLog(@"%i",operation.response.statusCode);
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString* filename= [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",url,page]];
+        
+        [NSKeyedArchiver archiveRootObject:[operation.response.allHeaderFields objectForKey:@"Etag"] toFile:filename];
         if (block) {
             block([responseObject objectForKey:@"response"]);
         }
@@ -24,7 +31,6 @@
         
         NSLog(@"%@",error);
     }];
-
 }
 
 @end
