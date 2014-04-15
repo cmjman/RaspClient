@@ -44,20 +44,20 @@
     
     [TaskService getTask:[[NSNumber alloc] initWithInt:1] callback:^(NSDictionary* json){
         
-        //NSLog(@"%@",json);
+        NSLog(@"%@",json);
         
         NSArray* array = [json objectForKey:@"tasks"];
         dataArray = [NSMutableArray array];
         
         for(NSDictionary* obj in array){
             
-            
             NSError* err = nil;
             Task* task = [[Task  alloc] initWithDictionary:obj error:&err];
             
             [dataArray addObject:task];
-            [_tableView reloadData];
         }
+        
+         [_tableView reloadData];
     }];
 
 }

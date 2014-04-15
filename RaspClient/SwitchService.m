@@ -7,6 +7,7 @@
 //
 
 #import "SwitchService.h"
+#import "NSURL+ServerURL.h"
 
 @implementation SwitchService
 
@@ -20,7 +21,7 @@
         NSLog(@"%i",operation.response.statusCode);
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString* filename= [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",url,page]];
+        NSString* filename= [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[operation.request.URL suffix]]];
         
         [NSKeyedArchiver archiveRootObject:[operation.response.allHeaderFields objectForKey:@"Etag"] toFile:filename];
         if (block) {
@@ -30,6 +31,14 @@
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"%@",error);
+        if (operation.response.statusCode == 304){
+            
+            if (block) {
+                
+                NSDictionary* dict= [[AFHTTPClient sharedClient] cachedResponseObject:operation];
+                block([dict objectForKey:@"response"]);
+            }
+        }
     }];
 }
 

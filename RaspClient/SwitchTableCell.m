@@ -7,7 +7,7 @@
 //
 
 #import "SwitchTableCell.h"
-#import "ServerUrl.h"
+#import "NSURL+ServerURL.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SwitchTableCell

@@ -13,4 +13,6 @@
 
 + (instancetype)sharedClient;
 
+-(id)cachedResponseObject: (AFHTTPRequestOperation*)operation;
+
 @end

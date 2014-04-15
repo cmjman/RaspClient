@@ -23,6 +23,7 @@
 		6C1B906918CDC43800FDD567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1B904518CDC43700FDD567 /* UIKit.framework */; };
 		6C1B907118CDC43800FDD567 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C1B906F18CDC43800FDD567 /* InfoPlist.strings */; };
 		6C1B907318CDC43800FDD567 /* RaspClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B907218CDC43800FDD567 /* RaspClientTests.m */; };
+		6C359B7118FD523000EC07E7 /* NSURL+ServerURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */; };
 		6C551C0D18D1963100394DD0 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C551C0C18D1963100394DD0 /* TableCell.xib */; };
 		6C551C1018D1971400394DD0 /* SwitchTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C551C0F18D1971400394DD0 /* SwitchTableCell.m */; };
 		6C59CD2D18CF348500560D74 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD2C18CF348500560D74 /* LoginViewController.m */; };
@@ -71,7 +72,8 @@
 		6C1B906E18CDC43800FDD567 /* RaspClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RaspClientTests-Info.plist"; sourceTree = "<group>"; };
 		6C1B907018CDC43800FDD567 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C1B907218CDC43800FDD567 /* RaspClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaspClientTests.m; sourceTree = "<group>"; };
-		6C359B6818FD10D000EC07E7 /* ServerUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUrl.h; sourceTree = "<group>"; };
+		6C359B6F18FD523000EC07E7 /* NSURL+ServerURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ServerURL.h"; sourceTree = "<group>"; };
+		6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ServerURL.m"; sourceTree = "<group>"; };
 		6C551C0C18D1963100394DD0 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		6C551C0E18D1971400394DD0 /* SwitchTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchTableCell.h; sourceTree = "<group>"; };
 		6C551C0F18D1971400394DD0 /* SwitchTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchTableCell.m; sourceTree = "<group>"; };
@@ -235,7 +237,8 @@
 				6C59CD3B18CF498300560D74 /* SwitchService.m */,
 				6C59CD3D18CF499D00560D74 /* TaskService.h */,
 				6C59CD3E18CF499D00560D74 /* TaskService.m */,
-				6C359B6818FD10D000EC07E7 /* ServerUrl.h */,
+				6C359B6F18FD523000EC07E7 /* NSURL+ServerURL.h */,
+				6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				6C59CD3518CF3E6C00560D74 /* UserService.m in Sources */,
 				6C1B905B18CDC43700FDD567 /* SwitchViewController.m in Sources */,
 				6C1B904E18CDC43700FDD567 /* main.m in Sources */,
+				6C359B7118FD523000EC07E7 /* NSURL+ServerURL.m in Sources */,
 				6C59CD2D18CF348500560D74 /* LoginViewController.m in Sources */,
 				6C59CD3218CF3C1C00560D74 /* AFHTTPClient.m in Sources */,
 				6C551C1018D1971400394DD0 /* SwitchTableCell.m in Sources */,

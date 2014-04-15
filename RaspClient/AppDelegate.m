@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworkReachabilityManager.h>
 
 #if ENABLE_PONYDEBUGGER
 #import <PonyDebugger/PonyDebugger.h>
@@ -41,6 +42,11 @@
     NSLog(@"Cache is being logged to: %@", defaultCachePath);
 }
 
+- (void)initReachbility{
+    
+    [[AFNetworkReachabilityManager sharedManager]startMonitoring];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
@@ -48,6 +54,7 @@
     [self initPonyDebugger];
 #endif
     [self initCache];
+    [self initReachbility];
     
     // Override point for customization after application launch.
     return YES;

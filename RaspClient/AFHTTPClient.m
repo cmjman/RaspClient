@@ -7,7 +7,7 @@
 //
 
 #import "AFHTTPClient.h"
-#import "ServerUrl.h"
+#import "NSURL+ServerURL.h"
 
 @implementation AFHTTPClient
 
@@ -28,11 +28,13 @@
     
     NSMutableURLRequest *modifiedRequest = request.mutableCopy;
     AFNetworkReachabilityManager *reachability = self.reachabilityManager;
-    
+   
     if (!reachability.isReachable){
         modifiedRequest.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-    }else
-        modifiedRequest.cachePolicy = NSURLRequestReloadRevalidatingCacheData;
+    }
+    else{
+        modifiedRequest.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+    }
     
     //modifiedRequest.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -40,14 +42,7 @@
     
     if ([request.HTTPMethod isEqualToString:@"GET"]){
         
-        NSArray* arr =[[[NSString stringWithFormat:@"%@",request.URL] stringByReplacingOccurrencesOfString:WEBSERVICE_URL withString:@""] componentsSeparatedByString:@"?"];
-        NSString* url= [arr objectAtIndex:0];
-        NSString* parm =[NSString alloc];
-        if ([arr count]>1)
-            parm = [[[arr objectAtIndex:1] componentsSeparatedByString:@"="]objectAtIndex:1];
-        else
-            parm = @"";
-        NSString* filename= [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",url,parm]];
+        NSString* filename= [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[request.URL suffix]]];
         
         NSString* etag = [NSKeyedUnarchiver unarchiveObjectWithFile:filename];
         
@@ -62,6 +57,18 @@
     return [super HTTPRequestOperationWithRequest:modifiedRequest
                                           success:success
                                           failure:failure];
+}
+
+- (id)cachedResponseObject:(AFHTTPRequestOperation *)operation{
+    
+
+    NSCachedURLResponse* cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:operation.request];
+            
+    AFHTTPResponseSerializer* serializer = [AFJSONResponseSerializer serializer];
+            
+    id responseObject = [serializer responseObjectForResponse:cachedResponse.response data:cachedResponse.data error:nil];
+    
+    return responseObject;
 }
 
 @end
