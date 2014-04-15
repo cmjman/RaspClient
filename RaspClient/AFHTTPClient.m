@@ -7,9 +7,7 @@
 //
 
 #import "AFHTTPClient.h"
-
-static NSString * const SERVER_BASE_URL = @"http://192.168.1.111/service/";
-//static NSString * const SERVER_BASE_URL = @"http://127.0.0.1:8080/service/";
+#import "ServerUrl.h"
 
 @implementation AFHTTPClient
 
@@ -18,7 +16,7 @@ static NSString * const SERVER_BASE_URL = @"http://192.168.1.111/service/";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        _sharedClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:SERVER_BASE_URL]];
+        _sharedClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:WEBSERVICE_URL]];
     });
     
     return _sharedClient;
@@ -42,7 +40,7 @@ static NSString * const SERVER_BASE_URL = @"http://192.168.1.111/service/";
     
     if ([request.HTTPMethod isEqualToString:@"GET"]){
         
-        NSArray* arr =[[[NSString stringWithFormat:@"%@",request.URL] stringByReplacingOccurrencesOfString:SERVER_BASE_URL withString:@""] componentsSeparatedByString:@"?"];
+        NSArray* arr =[[[NSString stringWithFormat:@"%@",request.URL] stringByReplacingOccurrencesOfString:WEBSERVICE_URL withString:@""] componentsSeparatedByString:@"?"];
         NSString* url= [arr objectAtIndex:0];
         NSString* parm =[NSString alloc];
         if ([arr count]>1)

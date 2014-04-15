@@ -7,6 +7,8 @@
 //
 
 #import "SwitchTableCell.h"
+#import "ServerUrl.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SwitchTableCell
 
@@ -45,6 +47,9 @@
     NSString* status_text = [_switch.status intValue] == 1?@"On":@"Off";
     [_statusLabel setText:status_text];
     [_levelLabel setText:_switch.level.stringValue];
+    
+    NSURL* imgUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",STATIC_IMAGE_URL,_switch.picture]];
+    [_image setImageWithURL:imgUrl];
 }
 
 @end

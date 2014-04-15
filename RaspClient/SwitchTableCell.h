@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel* nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel* statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel* levelLabel;
+@property (weak, nonatomic) IBOutlet UIImageView* image;
 
 +(SwitchTableCell* )loadSwitchTableCellXib:(UITableView *)table;
 

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString* name;       //开关名称
 @property (strong, nonatomic) NSNumber* status;     //开关当前状态
 @property (strong, nonatomic) NSNumber* level;      //最小可操作等级
+@property (strong, nonatomic) NSString* picture;    //开关图片
 
 @end

@@ -9,6 +9,8 @@
 #import "TaskTableCell.h"
 
 @implementation TaskTableCell
+@synthesize finishedHeight, tintColor;
+
 
 +(TaskTableCell* )loadSwitchTableCellXib:(UITableView *)table{
     

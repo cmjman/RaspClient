@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SDURLCache.h"
 
 #if ENABLE_PONYDEBUGGER
 #import <PonyDebugger/PonyDebugger.h>

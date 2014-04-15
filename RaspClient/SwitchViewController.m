@@ -95,7 +95,7 @@ static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getS
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 44)];
-    [label setText:@"  开关名称           开关状态                操作权限"];
+    [label setText:@" 图片     开关名称             状态              操作权限"];
     [label setTextColor:[UIColor blackColor]];
     [label setFont:[UIFont systemFontOfSize:14]];
     [view addSubview:label];

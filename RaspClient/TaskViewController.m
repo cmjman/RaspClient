@@ -14,7 +14,6 @@
 @interface TaskViewController (){
     
     NSMutableArray* dataArray;
-    TableViewGestureRecognizer *tableViewRecognizer;
 }
 
 @end
@@ -28,7 +27,15 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    tableViewRecognizer=[_tableView enableGestureTableViewWithDelegate:self];
+    
+    //iOS 7下首个cell位置会向上偏移64个像素，需要手动调整
+    for(UIView *subview in _tableView.subviews){
+        
+        if([NSStringFromClass([subview class]) isEqualToString:@"UITableViewWrapperView"]){
+            
+            subview.frame = CGRectMake(0, 64, _tableView.bounds.size.width, _tableView.bounds.size.height);
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -61,6 +68,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIView *)viewWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeCenter;
+    return imageView;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -68,11 +82,33 @@
     return [dataArray count];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 44)];
+    [view setBackgroundColor:[UIColor blackColor]];
+    
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(10, 64, 320, 44)];
+    [label setText:@"任务ID           目标状态                操作结果"];
+    [label setTextColor:[UIColor blackColor]];
+    [label setFont:[UIFont systemFontOfSize:14]];
+    [view addSubview:label];
+    
+    return view;
+}
+
 #pragma mark - UITableViewDelegate
 - (UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString* identifier = [NSString stringWithFormat:@"TaskTableCell"];
-    TaskTableCell* cell = (TaskTableCell* )[tableView dequeueReusableCellWithIdentifier:identifier];
+    /*
+    NSObject *object = [dataArray objectAtIndex:indexPath.row];
+    
+    NSString *identifier = nil;
+    TaskTableCell *cell = nil;
+    
+
+    
+    identifier = [NSString stringWithFormat:@"TaskTableCell"];
+    cell = (TaskTableCell* )[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [TaskTableCell loadSwitchTableCellXib:tableView];
     }
@@ -80,126 +116,61 @@
     Task* task = [dataArray objectAtIndex:indexPath.row];
     
     [cell setData:task];
+     */
+    
+    NSString* CellIdentifier=@"TaskTableCell";
+    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+        // Remove inset of iOS 7 separators.
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            cell.separatorInset = UIEdgeInsetsZero;
+        }
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+        
+        // Setting the background color of the cell.
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+    }
+    
+    // Configuring the views and colors.
+    UIView *checkView = [self viewWithImageName:@"check"];
+    UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
+    
+    UIView *crossView = [self viewWithImageName:@"cross"];
+    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+    
+    UIView *clockView = [self viewWithImageName:@"clock"];
+    UIColor *yellowColor = [UIColor colorWithRed:254.0 / 255.0 green:217.0 / 255.0 blue:56.0 / 255.0 alpha:1.0];
+    
+    UIView *listView = [self viewWithImageName:@"list"];
+    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
+    
+    // Setting the default inactive state color to the tableView background color.
+    [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
+    
+    [cell.textLabel setText:@"Switch Mode Cell"];
+    [cell.detailTextLabel setText:@"Swipe to switch"];
+    
+    // Adding gestures per state basis.
+    [cell setSwipeGestureWithView:checkView color:greenColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+        NSLog(@"Did swipe \"Checkmark\" cell");
+    }];
+    
+    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState2 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+        NSLog(@"Did swipe \"Cross\" cell");
+    }];
+    
+    [cell setSwipeGestureWithView:clockView color:yellowColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+        NSLog(@"Did swipe \"Clock\" cell");
+    }];
+    
+    [cell setSwipeGestureWithView:listView color:brownColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState4 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+        NSLog(@"Did swipe \"List\" cell");
+    }];
     
     return cell;
 }
-
-#pragma mark TableViewGestureAddingRowDelegate
-
-/*
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer needsAddRowAtIndexPath:(NSIndexPath *)indexPath {
-    [dataArray insertObject:ADDING_CELL atIndex:indexPath.row];
-}
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer needsCommitRowAtIndexPath:(NSIndexPath *)indexPath {
-    [dataArray replaceObjectAtIndex:indexPath.row withObject:@"Added!"];
-    TransformableTableViewCell *cell = (id)[gestureRecognizer.tableView cellForRowAtIndexPath:indexPath];
-    
-    BOOL isFirstCell = indexPath.section == 0 && indexPath.row == 0;
-    if (isFirstCell && cell.frame.size.height > COMMITING_CREATE_CELL_HEIGHT * 2) {
-        [dataArray removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-        // Return to list
-    }
-    else {
-        cell.finishedHeight = NORMAL_CELL_FINISHING_HEIGHT;
-        cell.imageView.image = nil;
-        cell.textLabel.text = @"Just Added!";
-    }
-}
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer needsDiscardRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.rows removeObjectAtIndex:indexPath.row];
-}
-
-// Uncomment to following code to disable pinch in to create cell gesture
-//- (NSIndexPath *)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer willCreateCellAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0 && indexPath.row == 0) {
-//        return indexPath;
-//    }
-//    return nil;
-//}
-
-#pragma mark TableViewGestureEditingRowDelegate
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer didEnterEditingState:(TableViewCellEditingState)state forRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    UIColor *backgroundColor = nil;
-    switch (state) {
-        case TableViewCellEditingStateMiddle:
-            backgroundColor = [[UIColor redColor] colorWithHueOffset:0.12 * indexPath.row / [self tableView:self.tableView numberOfRowsInSection:indexPath.section]];
-            break;
-        case TableViewCellEditingStateRight:
-            backgroundColor = [UIColor greenColor];
-            break;
-        default:
-            backgroundColor = [UIColor darkGrayColor];
-            break;
-    }
-    cell.contentView.backgroundColor = backgroundColor;
-    if ([cell isKindOfClass:[TransformableTableViewCell class]]) {
-        ((TransformableTableViewCell *)cell).tintColor = backgroundColor;
-    }
-}
-
-// This is needed to be implemented to let our delegate choose whether the panning gesture should work
-- (BOOL)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer commitEditingState:(TableViewCellEditingState)state forRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableView *tableView = gestureRecognizer.tableView;
-    
-    
-    NSIndexPath *rowToBeMovedToBottom = nil;
-    
-    [tableView beginUpdates];
-    if (state == TableViewCellEditingStateLeft) {
-        // An example to discard the cell at TableViewCellEditingStateLeft
-        [self.rows removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-    } else if (state == TableViewCellEditingStateRight) {
-        // An example to retain the cell at commiting at TableViewCellEditingStateRight
-        [self.rows replaceObjectAtIndex:indexPath.row withObject:DONE_CELL];
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-        rowToBeMovedToBottom = indexPath;
-    } else {
-        // TableViewCellEditingStateMiddle shouldn't really happen in
-        // - [TableViewGestureDelegate gestureRecognizer:commitEditingState:forRowAtIndexPath:]
-    }
-    [tableView endUpdates];
-    
-    
-    // Row color needs update after datasource changes, reload it.
-    [tableView performSelector:@selector(reloadVisibleRowsExceptIndexPath:) withObject:indexPath afterDelay:TableViewRowAnimationDuration];
-    
-    if (rowToBeMovedToBottom) {
-        [self performSelector:@selector(moveRowToBottomForIndexPath:) withObject:rowToBeMovedToBottom afterDelay:TableViewRowAnimationDuration * 2];
-    }
-}
-
-#pragma mark TableViewGestureMoveRowDelegate
-
-- (BOOL)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer needsCreatePlaceholderForRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.grabbedObject = [self.rows objectAtIndex:indexPath.row];
-    [self.rows replaceObjectAtIndex:indexPath.row withObject:DUMMY_CELL];
-}
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer needsMoveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    id object = [self.rows objectAtIndex:sourceIndexPath.row];
-    [self.rows removeObjectAtIndex:sourceIndexPath.row];
-    [self.rows insertObject:object atIndex:destinationIndexPath.row];
-}
-
-- (void)gestureRecognizer:(TableViewGestureRecognizer *)gestureRecognizer needsReplacePlaceholderForRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.rows replaceObjectAtIndex:indexPath.row withObject:self.grabbedObject];
-    self.grabbedObject = nil;
-}
- */
-
 @end

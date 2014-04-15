@@ -71,6 +71,7 @@
 		6C1B906E18CDC43800FDD567 /* RaspClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RaspClientTests-Info.plist"; sourceTree = "<group>"; };
 		6C1B907018CDC43800FDD567 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C1B907218CDC43800FDD567 /* RaspClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaspClientTests.m; sourceTree = "<group>"; };
+		6C359B6818FD10D000EC07E7 /* ServerUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUrl.h; sourceTree = "<group>"; };
 		6C551C0C18D1963100394DD0 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		6C551C0E18D1971400394DD0 /* SwitchTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchTableCell.h; sourceTree = "<group>"; };
 		6C551C0F18D1971400394DD0 /* SwitchTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchTableCell.m; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 				6C59CD3B18CF498300560D74 /* SwitchService.m */,
 				6C59CD3D18CF499D00560D74 /* TaskService.h */,
 				6C59CD3E18CF499D00560D74 /* TaskService.m */,
+				6C359B6818FD10D000EC07E7 /* ServerUrl.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";

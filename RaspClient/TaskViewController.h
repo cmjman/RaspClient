@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableViewGestureRecognizer.h"
+#import "MCSwipeTableViewCell.h"
 
-@interface TaskViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,TableViewGestureEditingRowDelegate, TableViewGestureAddingRowDelegate>
+@interface TaskViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MCSwipeTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 
