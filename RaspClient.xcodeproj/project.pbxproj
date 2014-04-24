@@ -36,6 +36,7 @@
 		6C59CD4518CF49C800560D74 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD4418CF49C800560D74 /* Task.m */; };
 		6C636ED818D866C300A9C863 /* TaskTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C636ED718D866C300A9C863 /* TaskTableCell.m */; };
 		6C867EDE18D48BEB00337A89 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C867EDD18D48BEB00337A89 /* CurrentUser.m */; };
+		6CF8318719024C670091D4B9 /* SensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8318619024C670091D4B9 /* SensorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		6C636ED718D866C300A9C863 /* TaskTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableCell.m; sourceTree = "<group>"; };
 		6C867EDC18D48BEB00337A89 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
 		6C867EDD18D48BEB00337A89 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
+		6CF8318519024C670091D4B9 /* SensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorViewController.h; sourceTree = "<group>"; };
+		6CF8318619024C670091D4B9 /* SensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +225,8 @@
 				6C1B905D18CDC43700FDD567 /* TaskViewController.m */,
 				6C59CD2B18CF348500560D74 /* LoginViewController.h */,
 				6C59CD2C18CF348500560D74 /* LoginViewController.m */,
+				6CF8318519024C670091D4B9 /* SensorViewController.h */,
+				6CF8318619024C670091D4B9 /* SensorViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C59CD3C18CF498300560D74 /* SwitchService.m in Sources */,
+				6CF8318719024C670091D4B9 /* SensorViewController.m in Sources */,
 				6C59CD3918CF452200560D74 /* User.m in Sources */,
 				6C59CD4218CF49B200560D74 /* Switch.m in Sources */,
 				6C1B905E18CDC43700FDD567 /* TaskViewController.m in Sources */,

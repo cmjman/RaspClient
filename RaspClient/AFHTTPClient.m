@@ -36,7 +36,6 @@
         modifiedRequest.cachePolicy = NSURLRequestReloadIgnoringCacheData;
     }
     
-    //modifiedRequest.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     
     

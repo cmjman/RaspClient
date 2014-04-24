@@ -31,15 +31,10 @@
 
 - (void)initCache {
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString* defaultCachePath= [[paths objectAtIndex:0] stringByAppendingPathComponent:@"NSURLCache"];
     NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
                                                       diskCapacity:20 * 1024 * 1024
-                                                          diskPath:defaultCachePath];
-   // cache.minCacheInterval = 0;
-   
+                                                          diskPath:@"NSURLCache"];
     [NSURLCache setSharedURLCache:cache];
-    NSLog(@"Cache is being logged to: %@", defaultCachePath);
 }
 
 - (void)initReachbility{

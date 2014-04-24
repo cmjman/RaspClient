@@ -15,10 +15,10 @@
     
     NSDictionary *dictionary = @{@"nick":userName,@"password":password};
     
-    return [[AFHTTPClient sharedClient] POST:@"login" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    return [[AFHTTPClient sharedClient] GET:@"user" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         if (block) {
-            block([responseObject objectForKey:@"response"]);
+            block(responseObject);
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -31,10 +31,10 @@
     
     NSDictionary *dictionary = @{@"nick":userName,@"password":password};
     
-    return [[AFHTTPClient sharedClient] POST:@"register" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    return [[AFHTTPClient sharedClient] POST:@"user" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
     
         if (block) {
-            block([responseObject objectForKey:@"response"]);
+            block(responseObject);
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {

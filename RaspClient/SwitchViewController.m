@@ -119,6 +119,11 @@ static NSString * const SWITCH_STATUS_URL = @"http://127.0.0.1:8080/service/getS
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self performSegueWithIdentifier:@"gotoSensor" sender:self];
+}
+
 #pragma mark - SRWebSocketDelegate
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket;{

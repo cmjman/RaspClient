@@ -18,7 +18,7 @@
     User* user = [[CurrentUser sharedInstance] getCurrentUser];
     NSDictionary *dictionary = @{@"page":page,@"user_id":user.id};
 
-    return [[AFHTTPClient sharedClient] GET:@"getTask" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+    return [[AFHTTPClient sharedClient] GET:@"task" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         NSLog(@"%i",operation.response.statusCode);
         
@@ -30,7 +30,7 @@
         [NSKeyedArchiver archiveRootObject:[operation.response.allHeaderFields objectForKey:@"Etag"] toFile:filename];
         
         if (block) {
-            block([responseObject objectForKey:@"response"]);
+            block(responseObject);
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -41,7 +41,7 @@
             if (block) {
                
                 NSDictionary* dict= [[AFHTTPClient sharedClient] cachedResponseObject:operation];
-                block([dict objectForKey:@"response"]);
+                block(dict);
             }
         }
 

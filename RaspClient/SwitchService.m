@@ -14,7 +14,7 @@
 + (AFHTTPRequestOperation *)getSwitch:(NSNumber *)page callback:(void (^)(NSDictionary *))block{
     
     NSDictionary *dictionary = @{@"page":page};
-    NSString* url = @"getSwitch";
+    NSString* url = @"switch";
     
     return [[AFHTTPClient sharedClient] GET:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
         
@@ -25,7 +25,7 @@
         
         [NSKeyedArchiver archiveRootObject:[operation.response.allHeaderFields objectForKey:@"Etag"] toFile:filename];
         if (block) {
-            block([responseObject objectForKey:@"response"]);
+            block(responseObject);
         }
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -36,7 +36,7 @@
             if (block) {
                 
                 NSDictionary* dict= [[AFHTTPClient sharedClient] cachedResponseObject:operation];
-                block([dict objectForKey:@"response"]);
+                block(dict);
             }
         }
     }];

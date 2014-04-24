@@ -54,6 +54,9 @@
             NSError* err = nil;
             Task* task = [[Task  alloc] initWithDictionary:obj error:&err];
             
+            if (task == nil)
+                NSLog(@"%@",err);
+            
             [dataArray addObject:task];
         }
         
