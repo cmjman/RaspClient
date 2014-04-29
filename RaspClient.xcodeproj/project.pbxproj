@@ -24,6 +24,8 @@
 		6C1B907118CDC43800FDD567 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C1B906F18CDC43800FDD567 /* InfoPlist.strings */; };
 		6C1B907318CDC43800FDD567 /* RaspClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B907218CDC43800FDD567 /* RaspClientTests.m */; };
 		6C359B7118FD523000EC07E7 /* NSURL+ServerURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */; };
+		6C4D73D8190E6E8B0037C98A /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D73D7190E6E8B0037C98A /* config.xml */; };
+		6C4D74BA190E749A0037C98A /* www in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D74B9190E749A0037C98A /* www */; };
 		6C551C0D18D1963100394DD0 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C551C0C18D1963100394DD0 /* TableCell.xib */; };
 		6C551C1018D1971400394DD0 /* SwitchTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C551C0F18D1971400394DD0 /* SwitchTableCell.m */; };
 		6C59CD2D18CF348500560D74 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD2C18CF348500560D74 /* LoginViewController.m */; };
@@ -75,6 +77,8 @@
 		6C1B907218CDC43800FDD567 /* RaspClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaspClientTests.m; sourceTree = "<group>"; };
 		6C359B6F18FD523000EC07E7 /* NSURL+ServerURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ServerURL.h"; sourceTree = "<group>"; };
 		6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ServerURL.m"; sourceTree = "<group>"; };
+		6C4D73D7190E6E8B0037C98A /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
+		6C4D74B9190E749A0037C98A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = RaspClient/www; sourceTree = "<group>"; };
 		6C551C0C18D1963100394DD0 /* TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		6C551C0E18D1971400394DD0 /* SwitchTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchTableCell.h; sourceTree = "<group>"; };
 		6C551C0F18D1971400394DD0 /* SwitchTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchTableCell.m; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		6C1B903518CDC43700FDD567 = {
 			isa = PBXGroup;
 			children = (
+				6C4D74B9190E749A0037C98A /* www */,
 				6C1B904718CDC43700FDD567 /* RaspClient */,
 				6C1B906C18CDC43800FDD567 /* RaspClientTests */,
 				6C1B904018CDC43700FDD567 /* Frameworks */,
@@ -162,6 +167,7 @@
 		6C1B904718CDC43700FDD567 /* RaspClient */ = {
 			isa = PBXGroup;
 			children = (
+				6C4D73D7190E6E8B0037C98A /* config.xml */,
 				6C867EDB18D48BCB00337A89 /* Cache */,
 				6C551C0B18D1960400394DD0 /* View */,
 				6C59CD3618CF450E00560D74 /* Model */,
@@ -357,6 +363,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C4D74BA190E749A0037C98A /* www in Resources */,
+				6C4D73D8190E6E8B0037C98A /* config.xml in Resources */,
 				6C1B906018CDC43800FDD567 /* Images.xcassets in Resources */,
 				6C551C0D18D1963100394DD0 /* TableCell.xib in Resources */,
 				6C1B905518CDC43700FDD567 /* Main_iPhone.storyboard in Resources */,
@@ -482,7 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -515,6 +523,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -522,7 +531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -548,6 +557,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -558,6 +568,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RaspClient/RaspClient-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -578,6 +592,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RaspClient/RaspClient-Prefix.pch";
 				INFOPLIST_FILE = "RaspClient/RaspClient-Info.plist";

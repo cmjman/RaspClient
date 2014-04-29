@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CDVViewController.h>
 
-@interface SensorViewController : UIViewController
+@interface SensorViewController : CDVViewController
 
 @end
