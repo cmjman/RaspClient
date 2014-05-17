@@ -27,7 +27,7 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
+
     //iOS 7下首个cell位置会向上偏移64个像素，需要手动调整
     for(UIView *subview in _tableView.subviews){
         
@@ -41,6 +41,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    
+    [self.tabBarController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTask:)]];
     
     [TaskService getTask:[[NSNumber alloc] initWithInt:1] callback:^(NSDictionary* json){
         
@@ -65,6 +67,13 @@
 
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [self.tabBarController.navigationItem setRightBarButtonItem:nil];
+}
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,6 +85,11 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.contentMode = UIViewContentModeCenter;
     return imageView;
+}
+
+- (void)addTask:(id)sender{
+    
+    [self performSegueWithIdentifier:@"gotoAddTask" sender:sender];
 }
 
 #pragma mark - UITableViewDataSource
@@ -91,7 +105,7 @@
     [view setBackgroundColor:[UIColor blackColor]];
     
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(10, 64, 320, 44)];
-    [label setText:@"任务ID           目标状态                操作结果"];
+    [label setText:@"ID    状态   条件表达式                       操作结果"];
     [label setTextColor:[UIColor blackColor]];
     [label setFont:[UIFont systemFontOfSize:14]];
     [view addSubview:label];
@@ -102,13 +116,8 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    /*
-    NSObject *object = [dataArray objectAtIndex:indexPath.row];
-    
     NSString *identifier = nil;
     TaskTableCell *cell = nil;
-    
-
     
     identifier = [NSString stringWithFormat:@"TaskTableCell"];
     cell = (TaskTableCell* )[tableView dequeueReusableCellWithIdentifier:identifier];
@@ -119,60 +128,6 @@
     Task* task = [dataArray objectAtIndex:indexPath.row];
     
     [cell setData:task];
-     */
-    
-    NSString* CellIdentifier=@"TaskTableCell";
-    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        
-        // Remove inset of iOS 7 separators.
-        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-            cell.separatorInset = UIEdgeInsetsZero;
-        }
-        
-        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-        
-        // Setting the background color of the cell.
-        cell.contentView.backgroundColor = [UIColor whiteColor];
-    }
-    
-    // Configuring the views and colors.
-    UIView *checkView = [self viewWithImageName:@"check"];
-    UIColor *greenColor = [UIColor colorWithRed:85.0 / 255.0 green:213.0 / 255.0 blue:80.0 / 255.0 alpha:1.0];
-    
-    UIView *crossView = [self viewWithImageName:@"cross"];
-    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-    
-    UIView *clockView = [self viewWithImageName:@"clock"];
-    UIColor *yellowColor = [UIColor colorWithRed:254.0 / 255.0 green:217.0 / 255.0 blue:56.0 / 255.0 alpha:1.0];
-    
-    UIView *listView = [self viewWithImageName:@"list"];
-    UIColor *brownColor = [UIColor colorWithRed:206.0 / 255.0 green:149.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
-    
-    // Setting the default inactive state color to the tableView background color.
-    [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
-    
-    [cell.textLabel setText:@"Switch Mode Cell"];
-    [cell.detailTextLabel setText:@"Swipe to switch"];
-    
-    // Adding gestures per state basis.
-    [cell setSwipeGestureWithView:checkView color:greenColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"Checkmark\" cell");
-    }];
-    
-    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState2 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"Cross\" cell");
-    }];
-    
-    [cell setSwipeGestureWithView:clockView color:yellowColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"Clock\" cell");
-    }];
-    
-    [cell setSwipeGestureWithView:listView color:brownColor mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState4 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        NSLog(@"Did swipe \"List\" cell");
-    }];
     
     return cell;
 }

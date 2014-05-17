@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCSwipeTableViewCell.h"
 
-@interface TaskViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MCSwipeTableViewCellDelegate>
+@interface TaskViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 

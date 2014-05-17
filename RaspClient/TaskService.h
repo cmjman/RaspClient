@@ -13,4 +13,6 @@
 
 +(AFHTTPRequestOperation *)getTask:(NSNumber *)page callback:(void (^)(NSDictionary *json))block;
 
++(AFHTTPRequestOperation *)addTask:(NSString *)expression id:(NSNumber*)switch_id status:(NSNumber*)status callback:(void (^)(NSDictionary *))block;
+
 @end

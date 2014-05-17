@@ -9,20 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Task.h"
 
-@protocol TaskTableCell <NSObject>
 
-@property (nonatomic, assign) CGFloat  finishedHeight;
-@property (nonatomic, strong) UIColor *tintColor;
-
-@end
-
-@interface TaskTableCell : UITableViewCell <TaskTableCell>
+@interface TaskTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel* switchIdLabel;
 @property (weak, nonatomic) IBOutlet UILabel* statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel* expressionLabel;
 @property (weak, nonatomic) IBOutlet UILabel* resultLabel;
-@property (strong, nonatomic) UITextField* textField;
 
 +(TaskTableCell* )loadSwitchTableCellXib:(UITableView *)table;
 

@@ -23,6 +23,7 @@
 		6C1B906918CDC43800FDD567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1B904518CDC43700FDD567 /* UIKit.framework */; };
 		6C1B907118CDC43800FDD567 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C1B906F18CDC43800FDD567 /* InfoPlist.strings */; };
 		6C1B907318CDC43800FDD567 /* RaspClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B907218CDC43800FDD567 /* RaspClientTests.m */; };
+		6C276274191B403000D6387B /* smart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C276273191B403000D6387B /* smart.jpg */; };
 		6C359B7118FD523000EC07E7 /* NSURL+ServerURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */; };
 		6C4D73D8190E6E8B0037C98A /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D73D7190E6E8B0037C98A /* config.xml */; };
 		6C4D74BA190E749A0037C98A /* www in Resources */ = {isa = PBXBuildFile; fileRef = 6C4D74B9190E749A0037C98A /* www */; };
@@ -37,7 +38,9 @@
 		6C59CD4218CF49B200560D74 /* Switch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD4118CF49B200560D74 /* Switch.m */; };
 		6C59CD4518CF49C800560D74 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59CD4418CF49C800560D74 /* Task.m */; };
 		6C636ED818D866C300A9C863 /* TaskTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C636ED718D866C300A9C863 /* TaskTableCell.m */; };
+		6C8315811917831E00BA1B90 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8315801917831E00BA1B90 /* AddTaskViewController.m */; };
 		6C867EDE18D48BEB00337A89 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C867EDD18D48BEB00337A89 /* CurrentUser.m */; };
+		6C8C0ED419178C4D00F9A47F /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8C0ED319178C4D00F9A47F /* Reveal.framework */; };
 		6CF8318719024C670091D4B9 /* SensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8318619024C670091D4B9 /* SensorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +78,7 @@
 		6C1B906E18CDC43800FDD567 /* RaspClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RaspClientTests-Info.plist"; sourceTree = "<group>"; };
 		6C1B907018CDC43800FDD567 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C1B907218CDC43800FDD567 /* RaspClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaspClientTests.m; sourceTree = "<group>"; };
+		6C276273191B403000D6387B /* smart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smart.jpg; sourceTree = "<group>"; };
 		6C359B6F18FD523000EC07E7 /* NSURL+ServerURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ServerURL.h"; sourceTree = "<group>"; };
 		6C359B7018FD523000EC07E7 /* NSURL+ServerURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ServerURL.m"; sourceTree = "<group>"; };
 		6C4D73D7190E6E8B0037C98A /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
@@ -100,8 +104,11 @@
 		6C59CD4418CF49C800560D74 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		6C636ED618D866C300A9C863 /* TaskTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableCell.h; sourceTree = "<group>"; };
 		6C636ED718D866C300A9C863 /* TaskTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableCell.m; sourceTree = "<group>"; };
+		6C83157F1917831E00BA1B90 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		6C8315801917831E00BA1B90 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 		6C867EDC18D48BEB00337A89 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
 		6C867EDD18D48BEB00337A89 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
+		6C8C0ED319178C4D00F9A47F /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		6CF8318519024C670091D4B9 /* SensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorViewController.h; sourceTree = "<group>"; };
 		6CF8318619024C670091D4B9 /* SensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +120,7 @@
 			files = (
 				6C1B904418CDC43700FDD567 /* CoreGraphics.framework in Frameworks */,
 				6C1B904618CDC43700FDD567 /* UIKit.framework in Frameworks */,
+				6C8C0ED419178C4D00F9A47F /* Reveal.framework in Frameworks */,
 				6C1B904218CDC43700FDD567 /* Foundation.framework in Frameworks */,
 				21A153A9236A409B93CA31C7 /* libPods.a in Frameworks */,
 			);
@@ -134,6 +142,7 @@
 		6C1B903518CDC43700FDD567 = {
 			isa = PBXGroup;
 			children = (
+				6C276270191B3F3D00D6387B /* Image */,
 				6C4D74B9190E749A0037C98A /* www */,
 				6C1B904718CDC43700FDD567 /* RaspClient */,
 				6C1B906C18CDC43800FDD567 /* RaspClientTests */,
@@ -155,6 +164,7 @@
 		6C1B904018CDC43700FDD567 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C8C0ED319178C4D00F9A47F /* Reveal.framework */,
 				6C1B904118CDC43700FDD567 /* Foundation.framework */,
 				6C1B904318CDC43700FDD567 /* CoreGraphics.framework */,
 				6C1B904518CDC43700FDD567 /* UIKit.framework */,
@@ -211,13 +221,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6C276270191B3F3D00D6387B /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				6C276273191B403000D6387B /* smart.jpg */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		6C551C0B18D1960400394DD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				6C551C0C18D1963100394DD0 /* TableCell.xib */,
 				6C551C0E18D1971400394DD0 /* SwitchTableCell.h */,
 				6C551C0F18D1971400394DD0 /* SwitchTableCell.m */,
-				6CAEE80018DDBD2B002EFD8D /* TaskTableCell */,
+				6C636ED618D866C300A9C863 /* TaskTableCell.h */,
+				6C636ED718D866C300A9C863 /* TaskTableCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -233,6 +252,8 @@
 				6C59CD2C18CF348500560D74 /* LoginViewController.m */,
 				6CF8318519024C670091D4B9 /* SensorViewController.h */,
 				6CF8318619024C670091D4B9 /* SensorViewController.m */,
+				6C83157F1917831E00BA1B90 /* AddTaskViewController.h */,
+				6C8315801917831E00BA1B90 /* AddTaskViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -274,15 +295,6 @@
 				6C867EDD18D48BEB00337A89 /* CurrentUser.m */,
 			);
 			name = Cache;
-			sourceTree = "<group>";
-		};
-		6CAEE80018DDBD2B002EFD8D /* TaskTableCell */ = {
-			isa = PBXGroup;
-			children = (
-				6C636ED618D866C300A9C863 /* TaskTableCell.h */,
-				6C636ED718D866C300A9C863 /* TaskTableCell.m */,
-			);
-			name = TaskTableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +381,7 @@
 				6C551C0D18D1963100394DD0 /* TableCell.xib in Resources */,
 				6C1B905518CDC43700FDD567 /* Main_iPhone.storyboard in Resources */,
 				6C1B904C18CDC43700FDD567 /* InfoPlist.strings in Resources */,
+				6C276274191B403000D6387B /* smart.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +440,7 @@
 				6C1B905E18CDC43700FDD567 /* TaskViewController.m in Sources */,
 				6C59CD4518CF49C800560D74 /* Task.m in Sources */,
 				6C1B905218CDC43700FDD567 /* AppDelegate.m in Sources */,
+				6C8315811917831E00BA1B90 /* AddTaskViewController.m in Sources */,
 				6C636ED818D866C300A9C863 /* TaskTableCell.m in Sources */,
 				6C867EDE18D48BEB00337A89 /* CurrentUser.m in Sources */,
 				6C59CD3F18CF499D00560D74 /* TaskService.m in Sources */,
@@ -511,6 +525,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"ENABLE_PONYDEBUGGER=0",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

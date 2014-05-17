@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MCSwipeTableViewCell.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-PonyDebugger.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,42 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FB8D9AF0F714F228B109FE8</key>
+		<key>1F918410FF7B4238840C6101</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5143C7E9EB5D4D978B34909D</key>
+		<key>3DEF32F0C9A244FDA9CF0D9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>682D674BF4CC4025BF980924</key>
+		<key>9815A978069A433C8E5D8465</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96D2D83492DA488DBE329195</key>
+		<key>C530280933664B389C5FCE3B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E084B3EA9424ED38C8E80DD</key>
+		<key>D3D65FDFAFB744E588F5A64D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8E199A737214D94B3983AA8</key>
+		<key>D4D50FE7FBF14BB9BCE9131F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C477740159634653A5585820</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D5FCA9501D5B475FB6232F06</key>
+		<key>EAA80842AA0641C3A909A778</key>
 		<dict>
 			<key>primary</key>
 			<true/>

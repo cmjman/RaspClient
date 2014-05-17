@@ -7,7 +7,6 @@
 //
 
 #import "SensorViewController.h"
-
 @interface SensorViewController (){
     
     NSURLRequest* request;
@@ -38,7 +37,7 @@
     
     [super viewWillAppear:animated];
     
-    [self getNetworkTypeWithPrivateFramework];
+   // [self getNetworkTypeWithPrivateFramework];
     
 }
 
@@ -54,12 +53,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-//仅真机有效，模拟器需要补充
+//仅真机有效
 - (void)getNetworkTypeWithPrivateFramework{
     
     NSBundle *bundle = [NSBundle bundleWithPath:
                         @"/System/Library/PrivateFrameworks/SoftwareUpdateServices.framework"];
-                   
+    
     if ([bundle load]){
         
         Class NetworkMonitor = NSClassFromString(@"SUNetworkMonitor");

@@ -20,7 +20,6 @@ PODS:
     - AFNetworking/NSURLSession
   - Cordova (3.4.1)
   - JSONModel (0.12.0)
-  - MCSwipeTableViewCell (2.1.0)
   - PonyDebugger (0.3.1):
     - SocketRocket
   - SDWebImage (3.6):
@@ -32,7 +31,6 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Cordova (~> 3.4.0)
   - JSONModel (~> 0.12.0)
-  - MCSwipeTableViewCell (~> 2.1.0)
   - PonyDebugger (~> 0.3.1)
   - SDWebImage (~> 3.6)
   - SocketRocket (~> 0.3.1-beta2)
@@ -41,7 +39,6 @@ SPEC CHECKSUMS:
   AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
   Cordova: 5db2814dd40fda9b257f72c1268b78f2e3833ef7
   JSONModel: f391da60a15e11f8fa8950fb980b8f799ae3453f
-  MCSwipeTableViewCell: 4a26851568843d15340eeca00210c219aa9f76d5
   PonyDebugger: d31607145d785b2315cd6f6a4ebaa378eb0c1340
   SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
   SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae

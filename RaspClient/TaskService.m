@@ -48,4 +48,22 @@
     }];
 }
 
++(AFHTTPRequestOperation *)addTask:(NSString *)expression id:(NSNumber*)switch_id status:(NSNumber*)status callback:(void (^)(NSDictionary *))block{
+    
+    User* user = [[CurrentUser sharedInstance] getCurrentUser];
+    NSDictionary *dictionary = @{@"switch_id":switch_id,@"user_id":user.id,
+                                 @"target_status":status,@"if_expression":expression};
+    
+    return [[AFHTTPClient sharedClient] POST:@"task" parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        if (block) {
+            block(responseObject);
+        }
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"%@",error);
+    }];
+}
+
 @end

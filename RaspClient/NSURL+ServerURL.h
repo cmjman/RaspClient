@@ -10,8 +10,8 @@
 
 @interface NSURL (ServerURL)
 
-#define WEBSERVICE_URL @"http://192.168.1.114/service/"
-#define STATIC_IMAGE_URL @"http://192.168.1.114/static/img/"
+#define WEBSERVICE_URL @"http://192.168.1.129/service/"
+#define STATIC_IMAGE_URL @"http://192.168.1.129/static/img/"
 
 -(NSString *)suffix;
 
