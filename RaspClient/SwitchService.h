@@ -13,4 +13,6 @@
 
 +(AFHTTPRequestOperation *)getSwitch:(NSNumber *)page callback:(void (^)(NSDictionary *json))block;
 
++(AFHTTPRequestOperation *)changeSwitch:(NSNumber *)switchId callback:(void (^)(NSDictionary *json))block;
+
 @end

@@ -42,4 +42,26 @@
     }];
 }
 
++ (AFHTTPRequestOperation *)changeSwitch:(NSNumber *)switchId callback:(void (^)(NSDictionary *))block{
+    
+    NSDictionary *dictionary = @{@"switch_id":switchId};
+    NSString* url = @"switch";
+    
+    return [[AFHTTPClient sharedClient] PUT:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        if (block) {
+            block(responseObject);
+        }
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"%@",error);
+        NSDictionary* dict = @{@"error":[error debugDescription]};
+        
+        if (block) {
+            block(dict);
+        }
+    }];
+}
+
 @end
